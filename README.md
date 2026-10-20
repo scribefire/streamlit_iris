@@ -1,18 +1,14 @@
-# Streamlit UI と Iris分類デモ
+# StreamlitとIris分類のデモ
 
-Streamlitのマルチページ構成で、ダッシュボード部品と基本的な分類モデルを試す小さなアプリです。
+Streamlitの画面部品とグラフを試しながら、scikit-learnのIrisデータで品種分類を行う小さなマルチページアプリです。
 
-## ページ構成
+## ページ
 
-- **メインページ（`app.py`）**：テキスト、ボタン、選択ウィジェット、データエディター、Pandasの表を表示します。
-- **可視化（`pages/page1.py`）**：ランダム生成したサンプルデータを棒グラフ、折れ線グラフ、散布図、地図で表示します。
-- **Iris分類（`pages/page2.py`）**：scikit-learn付属のIrisデータセットで決定木を学習し、評価スコアと、入力値に対する品種予測・予測確率を表示します。
+- `app.py`：ボタン、選択ウィジェット、データエディターなど
+- `pages/page1.py`：ランダム生成した値を棒・折れ線・散布図と地図で表示
+- `pages/page2.py`：決定木を学習し、入力した花の計測値から品種と予測確率を表示
 
-Streamlitが`pages/`以下を自動的にページとして読み込みます。
-
-## ローカルでの起動
-
-Python 3とpipを使います。リポジトリのルートで実行してください。
+## 起動
 
 ```bash
 python -m venv .venv
@@ -21,21 +17,4 @@ python -m pip install streamlit pandas numpy matplotlib scikit-learn
 streamlit run app.py
 ```
 
-Streamlitが表示するURL（通常は http://localhost:8501 ）をブラウザーで開きます。
-
-## 実装メモ
-
-- 可視化ページの値は実データではなく、実行時にランダム生成しています。
-- Irisページはscikit-learn付属のデータを使うため、別途データをダウンロードする必要はありません。
-- ページの再実行時にモデルを学習します。データ分割を固定していないため、評価スコアは実行ごとに変わることがあります。
-
-## ファイル構成
-
-```text
-app.py
-pages/
-  page1.py
-  page2.py
-```
-
-Streamlitとscikit-learnの基本機能を試す学習用デモであり、本番用の予測サービスではありません。
+Irisデータはscikit-learnに含まれているため、別途ダウンロードは不要です。分類ページは表示のたびに学習・評価するので、スコアは実行ごとに変わります。
