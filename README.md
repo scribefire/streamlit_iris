@@ -1,18 +1,18 @@
-# Streamlit UI and Iris Classification Demo
+# Streamlit UI と Iris分類デモ
 
-A small multi-page Streamlit application for exploring common dashboard components and a basic machine-learning classification workflow.
+Streamlitのマルチページ構成で、ダッシュボード部品と基本的な分類モデルを試す小さなアプリです。
 
-## Pages
+## ページ構成
 
-- **Main page — `app.py`**: examples of Streamlit text, buttons, selection widgets, a data editor, and a small Pandas table.
-- **Visualizations — `pages/page1.py`**: generated sample data displayed as bar, line, scatter, and map charts.
-- **Iris classifier — `pages/page2.py`**: trains a decision-tree classifier with scikit-learn's built-in Iris dataset, shows an evaluation score, and predicts a species from user-entered measurements.
+- **メインページ（`app.py`）**：テキスト、ボタン、選択ウィジェット、データエディター、Pandasの表を表示します。
+- **可視化（`pages/page1.py`）**：ランダム生成したサンプルデータを棒グラフ、折れ線グラフ、散布図、地図で表示します。
+- **Iris分類（`pages/page2.py`）**：scikit-learn付属のIrisデータセットで決定木を学習し、評価スコアと、入力値に対する品種予測・予測確率を表示します。
 
-Streamlit discovers the pages under `pages/` automatically.
+Streamlitが`pages/`以下を自動的にページとして読み込みます。
 
-## Run locally
+## ローカルでの起動
 
-Python 3 and pip are required. From the repository root:
+Python 3とpipを使います。リポジトリのルートで実行してください。
 
 ```bash
 python -m venv .venv
@@ -21,15 +21,15 @@ python -m pip install streamlit pandas numpy matplotlib scikit-learn
 streamlit run app.py
 ```
 
-Open the local URL printed by Streamlit, usually http://localhost:8501.
+Streamlitが表示するURL（通常は http://localhost:8501 ）をブラウザーで開きます。
 
-## Implementation notes
+## 実装メモ
 
-- The first visualization page uses randomly generated sample data; it is not a real student dataset.
-- The Iris page uses the dataset bundled with scikit-learn, so no separate data download is needed.
-- The model is trained when the page runs. The train/test split is random, so the displayed evaluation score can vary between runs.
+- 可視化ページの値は実データではなく、実行時にランダム生成しています。
+- Irisページはscikit-learn付属のデータを使うため、別途データをダウンロードする必要はありません。
+- ページの再実行時にモデルを学習します。データ分割を固定していないため、評価スコアは実行ごとに変わることがあります。
 
-## Repository layout
+## ファイル構成
 
 ```text
 app.py
@@ -38,4 +38,4 @@ pages/
   page2.py
 ```
 
-This repository is a compact Streamlit and scikit-learn learning demo, not a production prediction service.
+Streamlitとscikit-learnの基本機能を試す学習用デモであり、本番用の予測サービスではありません。
